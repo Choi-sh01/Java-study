@@ -1,18 +1,26 @@
-# IntelliJ 설정
+# =========================
+# IntelliJ IDEA
+# =========================
 .idea/
 *.iml
 out/
 
-# Eclipse (겸용)
+# (겸용) Eclipse
 bin/
 
-# Java 빌드 결과물
+# =========================
+# Java build artifacts
+# =========================
 *.class
 
-# OS 자동 생성 파일
+# =========================
+# OS generated
+# =========================
 .DS_Store
 Thumbs.db
 
-# 기타
+# =========================
+# Archives & logs (optional)
+# =========================
 *.zip
 *.log
