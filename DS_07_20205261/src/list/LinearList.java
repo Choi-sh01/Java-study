@@ -1,0 +1,93 @@
+package list;
+
+class LinearList {
+    public static final int ITEM_NOT_FOUNDED = -1;
+    private String[] strArray;
+    private int size;
+    public static int MAX = 100;
+
+    public LinearList() {
+    	size = 0;
+        strArray = new String[MAX];
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public int length() {
+        return size;
+    }
+
+    public String retrieve(int i) {
+        return strArray[i];
+    }
+
+    public int find(String str) {
+        for(int i = 0; i < size; ++i) {
+            if (strArray[i].equals(str)) {
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
+    public void replace(int i, String str) {
+        strArray[i] = str;
+    }
+
+    public void replace(String str1, String str2) {
+        for(int i = 0; i < this.size; ++i) {
+            if (strArray[i].equals(str1)) {
+                strArray[i] = str2;
+            }
+        }
+
+    }
+
+    public void delete(int i) {
+    	strArray[i] = null;
+    	for(int j = i; j<size; j++) {
+    		strArray[j] = strArray[j+1];
+    	}
+    }
+
+    public void delete(String str) {
+    	int n=0;
+    	for(int i=0; i<size; i++) {
+    		if(strArray[i].equals(str)) {
+    			strArray[i] = null;
+    			n=i;
+    			break;
+    		}
+    	}
+    	for(int i=n; i<size; i++) {
+    		strArray[i] = strArray[i+1];
+    	}
+    	
+    }
+
+    public void insert(int i, String str) {
+        for(int j = size - 1; j >= i; --j) {
+            strArray[j + 1] = strArray[j];
+        }
+
+        strArray[i] = str;
+        size++;
+    }
+
+    public void insert(String str) {
+        strArray[size] = str;
+        size++;
+    }
+
+    public void printArray() {
+        for(int i = 0; i < strArray.length; ++i) {
+            if (strArray[i] != null) {
+                System.out.println("[" + i + "] : " + strArray[i]);
+            }
+        }
+
+    }
+}
