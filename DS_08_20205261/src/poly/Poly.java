@@ -27,7 +27,11 @@ public class Poly {
 
 	public boolean addTerm(int c, int e) {
 		coef[e] = c;
-		degree = e;
+	
+		if(e>degree) {
+			degree = e;
+		}
+		
 		if (coef[e] != 0) {
 			return false;
 		}
@@ -36,7 +40,13 @@ public class Poly {
 
 	public boolean delTerm(int e) {
 		coef[e] = 0;
-		degree--;
+		int max = 0;
+		for(int i = 0; i<degree; i++) {
+			if(coef[i]!=0 && i>max) {
+				max = i;
+			}
+		}
+		degree = max;
 		if (coef[e] == 0) {
 			return false;
 		}
@@ -49,11 +59,15 @@ public class Poly {
 			if (coef[i] == 0) {
 				continue;
 			}
-			if (coef[i + e] == 0) {
-				poly.coef[i + e] = 0;
-			}
 			poly.coef[i + e] = coef[i] * c;
 		}
+		int max = 0;
+		for (int i =0; i<coef.length; i++) {
+			if(coef[i]!=0 && i>max) {
+				max = i;
+			}
+		}
+		poly.degree = max;
 		return poly;
 	}
 
@@ -65,6 +79,13 @@ public class Poly {
 			}
 			poly.coef[i] = coef[i] + poly1.coef[i];
 		}
+		int max = 0;
+		for (int i =0; i<coef.length; i++) {
+			if(coef[i]!=0 && i>max) {
+				max = i;
+			}
+		}
+		poly.degree = max;
 		return poly;
 
 	}
@@ -83,19 +104,6 @@ public class Poly {
 	}
 
 	public void printResult() {
-//		for(int i = coef.length-1; i>=0; i--) {
-//			if(i == 0)
-//				System.out.print(coef[i]);
-//			if(coef[i]==0) {
-//				continue;
-//			}
-//			if(i==0 && coef[i]!=0) {
-//				System.out.print(coef[i]);
-//			}
-//			else {
-//				System.out.print(coef[i]+"x^"+i+" + ");
-//			}
-//		}
 		for (int i = coef.length - 1; i >= 0; i--) {
 			if (i == 0)
 				System.out.print(coef[i]);
