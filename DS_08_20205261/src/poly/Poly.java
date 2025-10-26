@@ -62,8 +62,8 @@ public class Poly {
 			poly.coef[i + e] = coef[i] * c;
 		}
 		int max = 0;
-		for (int i =0; i<coef.length; i++) {
-			if(coef[i]!=0 && i>max) {
+		for (int i =0; i<poly.coef.length; i++) {
+			if(poly.coef[i]!=0 && i>max) {
 				max = i;
 			}
 		}
@@ -80,8 +80,8 @@ public class Poly {
 			poly.coef[i] = coef[i] + poly1.coef[i];
 		}
 		int max = 0;
-		for (int i =0; i<coef.length; i++) {
-			if(coef[i]!=0 && i>max) {
+		for (int i =0; i<poly.coef.length; i++) {
+			if(poly.coef[i]!=0 && i>max) {
 				max = i;
 			}
 		}

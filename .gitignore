@@ -4,6 +4,7 @@
 .idea/
 *.iml
 out/
+ex/
 
 # (겸용) Eclipse
 bin/
