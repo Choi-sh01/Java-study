@@ -27,11 +27,11 @@ public class Poly {
 
 	public boolean addTerm(int c, int e) {
 		coef[e] = c;
-	
-		if(e>degree) {
+
+		if (e > degree) {
 			degree = e;
 		}
-		
+
 		if (coef[e] != 0) {
 			return false;
 		}
@@ -39,18 +39,20 @@ public class Poly {
 	}
 
 	public boolean delTerm(int e) {
-		coef[e] = 0;
-		int max = 0;
-		for(int i = 0; i<degree; i++) {
-			if(coef[i]!=0 && i>max) {
-				max = i;
-			}
-		}
-		degree = max;
 		if (coef[e] == 0) {
 			return false;
+		} else {
+			coef[e] = 0;
+			int max = 0;
+			for (int i = 0; i <= degree; i++) {
+				if (coef[i] != 0 && i > max) {
+					max = i;
+				}
+			}
+			degree = max;
+			return true;
 		}
-		return true;
+
 	}
 
 	public Poly sMult(int c, int e) {
@@ -62,8 +64,8 @@ public class Poly {
 			poly.coef[i + e] = coef[i] * c;
 		}
 		int max = 0;
-		for (int i =0; i<poly.coef.length; i++) {
-			if(poly.coef[i]!=0 && i>max) {
+		for (int i = 0; i < poly.coef.length; i++) {
+			if (poly.coef[i] != 0 && i > max) {
 				max = i;
 			}
 		}
@@ -80,8 +82,8 @@ public class Poly {
 			poly.coef[i] = coef[i] + poly1.coef[i];
 		}
 		int max = 0;
-		for (int i =0; i<poly.coef.length; i++) {
-			if(poly.coef[i]!=0 && i>max) {
+		for (int i = 0; i < poly.coef.length; i++) {
+			if (poly.coef[i] != 0 && i > max) {
 				max = i;
 			}
 		}
